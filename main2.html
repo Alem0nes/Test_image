@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSeadragon Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #openseadragon {
+            width: 100%;
+            height: 100vh;
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="openseadragon"></div>
+
+    <script>
+        // Initialize OpenSeadragon
+        OpenSeadragon({
+            id: "openseadragon",
+            tileSources: "https://storage.googleapis.com/text_big_img/mastocitoma%20C2106-24-002.jpg",  <!-- Correct URL -->
+            prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/",
+            showNavigator: true, // Optional: Shows a mini-map for navigation
+        });
+    </script>
+</body>
+</html>

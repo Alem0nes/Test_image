@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoomable Image Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-container">
+        <!-- Panzoom should be applied to this container -->
+        <div id="panzoom">
+            <img src="https://www.dropbox.com/scl/fi/3pog64t2km9ujljlvayeu/mastocitoma-C2106-24-002.jpg?rlkey=5t4u4iya2lducrik720oqcl16&raw=1" alt="Zoomable Image">
+        </div>
+
+        <!-- Zoom Controls -->
+        <div class="controls">
+            <button id="zoom-in">Zoom In</button>
+            <button id="zoom-out">Zoom Out</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        // Ensure the library is loaded before running this code
+        document.addEventListener("DOMContentLoaded", () => {
+            // Initialize Panzoom on the #panzoom container
+            const panzoomElement = document.querySelector("#panzoom");
+            const panzoom = Panzoom(panzoomElement, {
+                maxScale: 10, // Maximum zoom level
+                minScale: 1, // Minimum zoom level
+                contain: "outside", // Allow panning outside the container
+            });
+
+            // Enable wheel zooming
+            panzoomElement.parentElement.addEventListener("wheel", panzoom.zoomWithWheel);
+
+            // Add button controls
+            document.getElementById("zoom-in").addEventListener("click", () => {
+                panzoom.zoomIn({ animate: true }); // Zoom in
+            });
+
+            document.getElementById("zoom-out").addEventListener("click", () => {
+                panzoom.zoomOut({ animate: true }); // Zoom out
+            });
+
+            document.getElementById("reset").addEventListener("click", () => {
+                panzoom.reset({ animate: true }); // Reset zoom
+            });
+        });
+    </script>
+</body>
+
+</html>
+
