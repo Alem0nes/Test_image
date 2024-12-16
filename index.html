@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +19,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="openseadragon"></div>
 
@@ -25,10 +27,12 @@
         // Initialize OpenSeadragon
         OpenSeadragon({
             id: "openseadragon",
-            tileSources: "https://storage.googleapis.com/text_big_img/mastocitoma%20C2106-24-002.jpg",  <!-- Correct URL -->
+            tileSources: 'https://storage.googleapis.com/text_big_img/mastocitoma.dzi',  // Caminho relativo para o arquivo
             prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/",
-            showNavigator: true, // Optional: Shows a mini-map for navigation
+            showNavigator: true
         });
+
     </script>
 </body>
+
 </html>
